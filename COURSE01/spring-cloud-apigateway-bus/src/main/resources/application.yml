@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: apigatewaybus
+
+server:
+  port: 8775
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+zuul:
+  routes:
+    mssecurity:
+      path: /security/**
+      serviceId: WS-SECURITY
+      stripPrefix: false
+      sensitiveHeaders: Cookie,Set-Cookie
+    
